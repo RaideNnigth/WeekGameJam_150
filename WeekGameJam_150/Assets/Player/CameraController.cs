@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class CamaraController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
 
     public Transform target;
