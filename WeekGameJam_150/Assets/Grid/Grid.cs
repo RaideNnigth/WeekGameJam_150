@@ -6,6 +6,26 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public int size;
+    public GameObject selectionPlane;
+
+    private void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit cursorHit;
+
+        if (Physics.Raycast(ray, out cursorHit))
+        {
+            //Hide the cursor and show a selection of the grid
+            Cursor.visible = false;
+            selectionPlane.transform.position = GetNearestPointOnGrid(cursorHit.point);
+            selectionPlane.SetActive(true);
+        }
+        else
+        {
+            Cursor.visible = true;
+            selectionPlane.SetActive(false);
+        }
+    }
 
     public Vector3 GetNearestPointOnGrid(Vector3 pos)
     {

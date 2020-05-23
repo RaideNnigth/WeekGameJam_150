@@ -15,15 +15,26 @@ public class CubePlacer : MonoBehaviour
 
     void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             if (Physics.Raycast(ray, out hitInfo))
             {
                 PlaceCubeNear(hitInfo.point);
+
+                //Hide the cursor and show a selection of the grid
+                Cursor.visible = false;
+
+                //To show a square
             }
+        }
+
+        RaycastHit cursorHit;
+        if(Physics.Raycast(ray,out cursorHit))
+        {
+            Cursor.visible = false;
         }
     }
 
