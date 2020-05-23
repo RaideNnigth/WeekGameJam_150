@@ -7,6 +7,10 @@ public class Bullet : MonoBehaviour
     public float speed;
     public Rigidbody rb;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Start()
     {
         rb.velocity = transform.forward * speed;

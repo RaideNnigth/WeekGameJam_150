@@ -5,7 +5,6 @@ using UnityEngine;
 public class FirePoint : MonoBehaviour
 {
     public GameObject bullet;
-    public Transform firepoint;
     public float shootDelay;
     private bool canShoot = false;
     
@@ -15,7 +14,7 @@ public class FirePoint : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(bullet, firepoint.position, firepoint.rotation);
+                Instantiate(bullet, transform.position, transform.rotation);
                 canShoot = true;
                 StartCoroutine(wait());
             }

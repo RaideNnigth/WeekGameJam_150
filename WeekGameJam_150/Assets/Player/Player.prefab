@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89baceef52ac6404cbbea26fe49bb318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 20
 --- !u!1 &2950872520251225689
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,5 +153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5619426539597662773, guid: cbdd0151003f1fb4897344c8c424fc1f, type: 3}
-  firepoint: {fileID: 2950872520251225688}
-  shootDelay: 1
+  shootDelay: 0
