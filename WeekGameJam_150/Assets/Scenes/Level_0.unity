@@ -401,6 +401,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6783437873226496767, guid: e4aba3bc56485ac4bb4a97d999415a2d,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1807090531}
     - target: {fileID: 8720131330076925420, guid: e4aba3bc56485ac4bb4a97d999415a2d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -529,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 9135606826640639165, guid: e4aba3bc56485ac4bb4a97d999415a2d,
         type: 3}
       propertyPath: m_Name
-      value: HearthAndTrapsSystems
+      value: UiManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4aba3bc56485ac4bb4a97d999415a2d, type: 3}
@@ -667,6 +672,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1349782689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 311305511522456379, guid: e4aba3bc56485ac4bb4a97d999415a2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 670955406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1779215598 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6226863632609306279, guid: e4aba3bc56485ac4bb4a97d999415a2d,
@@ -677,6 +694,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1807090531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3163875272105877948, guid: e4aba3bc56485ac4bb4a97d999415a2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 670955406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3062382161908494483
@@ -718,6 +747,11 @@ PrefabInstance:
       propertyPath: Itens.Array.data[1]
       value: 
       objectReference: {fileID: 659454442}
+    - target: {fileID: 3062382160838481813, guid: 796fc5e45360d834cb495722044c2cc5,
+        type: 3}
+      propertyPath: limitCounter
+      value: 
+      objectReference: {fileID: 1349782689}
     - target: {fileID: 3062382160838481814, guid: 796fc5e45360d834cb495722044c2cc5,
         type: 3}
       propertyPath: m_Name
