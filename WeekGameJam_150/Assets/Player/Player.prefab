@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2950872520215714351}
   - component: {fileID: 2950872520215714348}
   - component: {fileID: 2950872520215714349}
+  - component: {fileID: -5228555445315791893}
+  - component: {fileID: 7032040142430525392}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -109,6 +111,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
+--- !u!114 &-5228555445315791893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950872520215714339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d781bdb9452f704093871ecf165f7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfHearths: 5
+  hearts: []
+--- !u!114 &7032040142430525392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950872520215714339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837fbe4c34b8c0340839af7e283942e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: -5228555445315791893}
 --- !u!1 &2950872520251225689
 GameObject:
   m_ObjectHideFlags: 0
