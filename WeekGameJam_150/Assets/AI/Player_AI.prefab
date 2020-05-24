@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3626678668518663242}
   m_Layer: 0
   m_Name: Player_AI
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,11 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f1d9a6448e90648ab2c21c6c1e904a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 20
   speed: 1
-  stoppingDist: 2
+  stoppingDist: 3
+  targetsTag: enemies
+  isRunning: 0
   bullet: {fileID: 5619426539597662773, guid: cbdd0151003f1fb4897344c8c424fc1f, type: 3}
   FirePoint: {fileID: 3484308952101676712}
+  TimeBtwnShots: 0.5
 --- !u!1 &8830063484627655105
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38249333307114941}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
   m_LocalPosition: {x: -0, y: -0.21960112, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1613555177307021895}
   m_Father: {fileID: 4915357941706891579}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!1 &185664962821316502
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +275,36 @@ Transform:
   m_Father: {fileID: 3123864070200636693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6072503473612166837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6861723952200399868}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6861723952200399868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072503473612166837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.071, z: 0.591}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4915357941706891579}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6140789564443113532
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,9 +438,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4915357941706891579}
   - component: {fileID: 93564934206261795}
+  - component: {fileID: 2894821650751785271}
+  - component: {fileID: -5390345536061477909}
   m_Layer: 0
   m_Name: Minion_1
-  m_TagString: Untagged
+  m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,6 +460,7 @@ Transform:
   m_Children:
   - {fileID: 8689931494681324213}
   - {fileID: 5481234330014345112}
+  - {fileID: 6861723952200399868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -450,3 +483,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2894821650751785271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8245393662872343336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee70a7cf96bce14786dbe31eb42f49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5390345536061477909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8245393662872343336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f1d9a6448e90648ab2c21c6c1e904a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 20
+  speed: 1
+  stoppingDist: 3
+  targetsTag: Player
+  isRunning: 0
+  bullet: {fileID: 5619426539597662773, guid: cbdd0151003f1fb4897344c8c424fc1f, type: 3}
+  FirePoint: {fileID: 6861723952200399868}
+  TimeBtwnShots: 0.5

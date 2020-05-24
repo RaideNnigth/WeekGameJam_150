@@ -9,6 +9,8 @@ public class AI_Movement : MonoBehaviour
     public float lookRadius;
     public float speed;
     public float stoppingDist;
+    public string targetsTag;
+    [HideInInspector] public bool isRunning;
     GameObject target;
 
     [Space]
@@ -20,18 +22,31 @@ public class AI_Movement : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("enemies");
+        //target = GameObject.FindGameObjectWithTag(targetsTag);
     }
 
     void Update()
     {
+        if(target == null)
+        {
+            //Debug.Log("No target Available");
+            target = GameObject.FindGameObjectWithTag(targetsTag);
+            return;
+        }
+
         float distance = Vector3.Distance(transform.position, target.transform.position);
 
         if (distance <= lookRadius)
         {
             if (distance >= stoppingDist)
             {
+                isRunning = true;
                 transform.Translate((target.transform.position - transform.position) * speed * Time.deltaTime, Space.World);
+            }
+            else
+            {
+                //If this Gameobject has reached near the target then dont run.
+                isRunning = false;
             }
 
             //Face Target
@@ -44,6 +59,10 @@ public class AI_Movement : MonoBehaviour
                 Instantiate(bullet, FirePoint.transform.position, transform.rotation);
                 lastShot = Time.time;
             }
+        }
+        else
+        {
+            isRunning = false;
         }
     }
 
