@@ -194,9 +194,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1086770716710637932}
   - component: {fileID: 5363304453284575816}
+  - component: {fileID: 6634011896052378340}
+  - component: {fileID: -711187422192835837}
   m_Layer: 0
   m_Name: Minion_2
-  m_TagString: Untagged
+  m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,6 +238,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6634011896052378340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129701823168865151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee70a7cf96bce14786dbe31eb42f49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-711187422192835837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129701823168865151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f1d9a6448e90648ab2c21c6c1e904a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 20
+  speed: 1
+  stoppingDist: 2
+  targetsTag: Player
+  isRunning: 0
+  bullet: {fileID: 5619426539597662773, guid: cbdd0151003f1fb4897344c8c424fc1f, type: 3}
+  FirePoint: {fileID: 0}
+  TimeBtwnShots: 0.5
 --- !u!1 &5310233762744987585
 GameObject:
   m_ObjectHideFlags: 0
