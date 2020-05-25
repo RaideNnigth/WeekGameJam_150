@@ -6,6 +6,9 @@ TagManager:
   tags:
   - enemies
   - Traps
+  - Spike
+  - Hero_Bullet
+  - Player_Bullets
   layers:
   - Default
   - TransparentFX
