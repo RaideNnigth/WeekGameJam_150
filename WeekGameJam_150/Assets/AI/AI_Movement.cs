@@ -45,7 +45,8 @@ public class AI_Movement : MonoBehaviour
             if (distance >= stoppingDist)
             {
                 isRunning = true;
-                transform.Translate((target.transform.position - transform.position) * speed * Time.deltaTime, Space.World);
+                Vector3 newPos = target.transform.position - transform.position;
+                transform.Translate(newPos * speed * Time.deltaTime, Space.World);
             }
             else
             {
