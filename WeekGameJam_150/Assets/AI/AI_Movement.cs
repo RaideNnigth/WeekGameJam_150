@@ -20,9 +20,13 @@ public class AI_Movement : MonoBehaviour
     public float TimeBtwnShots = 0.5f;
     private float lastShot;
 
+    public float Health = 100;
+    public HealthBar healthBar;
+
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
+        healthBar = FindObjectOfType<HealthBar>();
     }
 
     void Update()
@@ -41,7 +45,8 @@ public class AI_Movement : MonoBehaviour
             if (distance >= stoppingDist)
             {
                 isRunning = true;
-                transform.Translate((target.transform.position - transform.position) * speed * Time.deltaTime, Space.World);
+                Vector3 newPos = target.transform.position - transform.position;
+                transform.Translate(newPos * speed * Time.deltaTime, Space.World);
             }
             else
             {
@@ -73,9 +78,18 @@ public class AI_Movement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    private void OnDrawGizmos()
+    void OnTriggerEnter(Collider collision) 
     {
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
-        Gizmos.DrawWireSphere(transform.position, stoppingDist);
+        if (collision.tag == "enemies" || collision.tag == "Player_Bullets")
+        {
+            Health -= 2;
+            healthBar.GetHit(Health);
+        }
     }
+    // if we want to see the wireSphere again
+    //private void OnDrawGizmos()
+    //{
+    //   Gizmos.DrawWireSphere(transform.position, lookRadius);
+    //  Gizmos.DrawWireSphere(transform.position, stoppingDist);
+    //}
 }
