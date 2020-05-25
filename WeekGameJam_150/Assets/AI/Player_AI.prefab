@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5067563700537483479}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -110,14 +110,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookRadius: 20
   speed: 1
-  stoppingDist: 3
-  targetsTag: Player_Bullets
+  stoppingDist: 10
+  targetsTag: enemies
   isRunning: 0
   bullet: {fileID: 5992764217203670929, guid: 78cc7ebe5b3c3cb43bc601f66da7982c, type: 3}
   FirePoint: {fileID: 3484308952101676712}
   TimeBtwnShots: 0.5
   Health: 100
   healthBar: {fileID: 0}
+  WaitSeconds: 2
+  randomDir:
+  - -5
+  - -4
+  - -3
+  - -2
+  - -1
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
 --- !u!54 &-5973126848063236285
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class AI_Movement : MonoBehaviour
+public class Ai_Movement_Minions : MonoBehaviour
 {
     [Header("Movement")]
     public float lookRadius;
@@ -21,25 +19,17 @@ public class AI_Movement : MonoBehaviour
     public float TimeBtwnShots = 0.5f;
     private float lastShot;
 
-    public float Health = 100;
-    public HealthBar healthBar;
-    
-    public float WaitSeconds;
-    public float[] randomDir;
-    private bool canSearch = false;
-    private bool canMove = false;
-    
- 
+    public float Health = 2;
 
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
-        healthBar = FindObjectOfType<HealthBar>();
+        
     }
 
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             //Debug.Log("No target Available");
             target = GameObject.FindGameObjectWithTag(targetsTag);
@@ -72,32 +62,10 @@ public class AI_Movement : MonoBehaviour
                 Instantiate(bullet, FirePoint.transform.position, transform.rotation);
                 lastShot = Time.time;
             }
-            canSearch = false;
         }
         else
         {
-            if (canSearch == true)
-            {
-                isRunning = true;
-                int i = Random.Range(-10, randomDir.Length - 1);
-                int iy = Random.Range(0, 360);
-
-                while (canMove == true)
-                {
-                    transform.Rotate(0, iy, 0);
-                    transform.Translate(transform.forward * speed * Time.deltaTime * randomDir[i], Space.World);
-                    StartCoroutine(waitMove());
-                }
-                
-            }
-            else
-            {
-                StartCoroutine(wait());
-                canMove = true;
-            }
-            
-
-            
+            isRunning = false;
         }
     }
 
@@ -108,37 +76,24 @@ public class AI_Movement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    void OnTriggerEnter(Collider collision) 
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "enemies" || collision.tag == "Player_Bullets")
+        if (collision.tag == "Hero_Bullet")
         {
+            
             if (Health > 0)
             {
-                Health -= 2;
-                healthBar.GetHit(Health);
+                Health -= 1;
             }
-
-            else 
+            else
             {
+               
                 Destroy(gameObject);
             }
+           
+            
         }
     }
-
-    IEnumerator wait() 
-    {
-        isRunning = false;
-        yield return new WaitForSeconds(WaitSeconds);
-        canSearch = true;
-    }
-    
-    IEnumerator waitMove()
-    {
-        isRunning = false;
-        yield return new WaitForSeconds(WaitSeconds);
-        canMove = false;
-    }
-
     // if we want to see the wireSphere again
     //private void OnDrawGizmos()
     //{
