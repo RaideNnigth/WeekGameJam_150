@@ -60,10 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: []
+  spikesPrefabs: []
   Itens: []
   limitCounter: {fileID: 0}
   limitOne: 4
   limitTwo: 4
+  limitThree: 2
+  limitFour: 2
+  prefabSelected: 0
 --- !u!1 &3062382161043147116
 GameObject:
   m_ObjectHideFlags: 0

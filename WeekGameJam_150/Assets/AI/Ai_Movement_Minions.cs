@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Net.Mime;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class AI_Movement : MonoBehaviour
+public class Ai_Movement_Minions : MonoBehaviour
 {
     [Header("Movement")]
     public float lookRadius;
     public float speed;
     public float stoppingDist;
     public string targetsTag;
-    public Transform moveSpot;
-    public float minX;
-    public float maxX;
-    public float minZ;
-    public float maxZ;
-    
     [HideInInspector] public bool isRunning;
     GameObject target;
 
@@ -27,23 +18,13 @@ public class AI_Movement : MonoBehaviour
     public Transform FirePoint;
     public float TimeBtwnShots = 0.5f;
     private float lastShot;
-    private float bulletDamage = 1;
 
-    public float Health = 100;
-    public HealthBar healthBar;
-
-    private float waitTime;
-    public float startWaitTime;
-    
+    public float Health = 2;
 
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
-        waitTime = startWaitTime;
-        moveSpot = GameObject.Find("MoveSpot").GetComponent<Transform>();
-        moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
-        healthBar = FindObjectOfType<HealthBar>();
-
+        
     }
 
     void Update()
@@ -82,26 +63,12 @@ public class AI_Movement : MonoBehaviour
                 lastShot = Time.time;
             }
         }
-        else 
+        else
         {
-            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
-
-            if(Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
-            {
-                if(waitTime <= 0)
-                {
-                    moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
-                    waitTime = startWaitTime;
-                }
-
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
-            }
+            isRunning = false;
         }
-        
     }
+
     private void FaceTarget()
     {
         Vector3 direction = target.transform.position - transform.position;
@@ -109,45 +76,23 @@ public class AI_Movement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    void OnTriggerEnter(Collider collision) 
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "enemies" || collision.tag == "Player_Bullets")
+        if (collision.tag == "Hero_Bullet")
         {
+            
             if (Health > 0)
             {
-                Health -= bulletDamage;
-                healthBar.GetHit(Health);
+                Health -= 1;
             }
-
-            else 
+            else
             {
+               
                 Destroy(gameObject);
             }
+           
+            
         }
-    }
-
-    public void SpikesDamageEnter()
-    { 
-        speed = speed / 3.5f;
-        Health -= 10;
-        healthBar.GetHit(Health);
-    }
-
-    public void SpikesDamageExit()
-    {
-        speed = speed * 3.5f;
-    }
-
-    public void BearTrapDamageEnter()
-    {
-        speed = speed/10;
-        bulletDamage = 2;
-    }
-
-    public void BearTrapDamageExit()
-    {
-        speed = speed * 10;
-        bulletDamage = 1;
     }
     // if we want to see the wireSphere again
     //private void OnDrawGizmos()

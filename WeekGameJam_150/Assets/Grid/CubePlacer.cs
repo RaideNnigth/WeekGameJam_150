@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -15,8 +14,8 @@ public class CubePlacer : MonoBehaviour
     public Text limitCounter;
     public int limitOne = 4;
     public int limitTwo = 4;
-    public int limitThree = 4;
-    public int limitFour = 4;
+    public int limitThree = 2;
+    public int limitFour = 2;
     public int prefabSelected = 0;
     Grid grid;
     
@@ -116,7 +115,7 @@ public class CubePlacer : MonoBehaviour
         {
             if (prefabSelected == 0)
             {
-                prefabSelected = 1;
+                prefabSelected = 3;
             }
             else
             {
@@ -137,8 +136,19 @@ public class CubePlacer : MonoBehaviour
                 {
                     Destroy(GameObject.Find("BearTrap(Clone)"));
                     limitTwo += 1;
-                } 
-            }
+                }
+                if (prefabSelected == 2 && limitThree < 2)
+                {
+                    Destroy(GameObject.Find("Minion_1(Clone)"));
+                    limitThree += 1;
+                }
+                if (prefabSelected == 3 && limitFour < 2)
+                {
+                    Destroy(GameObject.Find("Minion_2(Clone)"));
+                    limitFour += 1;
+                }
+
+        }
         SpriteChooser();
     }
 
