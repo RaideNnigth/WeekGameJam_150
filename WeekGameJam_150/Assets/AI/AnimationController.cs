@@ -5,10 +5,10 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     Animator animator;
-    AI_Movement movement;
+    Ai_Movement_Minions movement;
     private void Start()
     {
-        movement = GetComponent<AI_Movement>();
+        movement = GetComponent<Ai_Movement_Minions>();
         animator = GetComponent<Animator>();
     }
     // Update is called once per frame

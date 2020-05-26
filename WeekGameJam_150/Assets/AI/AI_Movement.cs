@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AI_Movement : MonoBehaviour
 {
@@ -10,6 +12,12 @@ public class AI_Movement : MonoBehaviour
     public float speed;
     public float stoppingDist;
     public string targetsTag;
+    public Transform moveSpot;
+    public float minX;
+    public float maxX;
+    public float minZ;
+    public float maxZ;
+    
     [HideInInspector] public bool isRunning;
     GameObject target;
 
@@ -19,15 +27,28 @@ public class AI_Movement : MonoBehaviour
     public Transform FirePoint;
     public float TimeBtwnShots = 0.5f;
     private float lastShot;
+    private float bulletDamage = 1;
+
+    public float Health = 100;
+    public HealthBar healthBar;
+
+    private float waitTime;
+    public float startWaitTime;
+    
 
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
+        waitTime = startWaitTime;
+        moveSpot = GameObject.Find("MoveSpot").GetComponent<Transform>();
+        moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
+        healthBar = FindObjectOfType<HealthBar>();
+
     }
 
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             //Debug.Log("No target Available");
             target = GameObject.FindGameObjectWithTag(targetsTag);
@@ -41,7 +62,8 @@ public class AI_Movement : MonoBehaviour
             if (distance >= stoppingDist)
             {
                 isRunning = true;
-                transform.Translate((target.transform.position - transform.position) * speed * Time.deltaTime, Space.World);
+                Vector3 newPos = target.transform.position - transform.position;
+                transform.Translate(newPos * speed * Time.deltaTime, Space.World);
             }
             else
             {
@@ -60,12 +82,26 @@ public class AI_Movement : MonoBehaviour
                 lastShot = Time.time;
             }
         }
-        else
+        else 
         {
-            isRunning = false;
-        }
-    }
+            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
 
+            if(Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
+            {
+                if(waitTime <= 0)
+                {
+                    moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
+                    waitTime = startWaitTime;
+                }
+
+                else
+                {
+                    waitTime -= Time.deltaTime;
+                }
+            }
+        }
+        
+    }
     private void FaceTarget()
     {
         Vector3 direction = target.transform.position - transform.position;
@@ -73,9 +109,50 @@ public class AI_Movement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    private void OnDrawGizmos()
+    void OnTriggerEnter(Collider collision) 
     {
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
-        Gizmos.DrawWireSphere(transform.position, stoppingDist);
+        if (collision.tag == "enemies" || collision.tag == "Player_Bullets")
+        {
+            if (Health > 0)
+            {
+                Health -= bulletDamage;
+                healthBar.GetHit(Health);
+            }
+
+            else 
+            {
+                Destroy(gameObject);
+            }
+        }
     }
+
+    public void SpikesDamageEnter()
+    { 
+        speed = speed / 3.5f;
+        Health -= 10;
+        healthBar.GetHit(Health);
+    }
+
+    public void SpikesDamageExit()
+    {
+        speed = speed * 3.5f;
+    }
+
+    public void BearTrapDamageEnter()
+    {
+        speed = speed/10;
+        bulletDamage = 2;
+    }
+
+    public void BearTrapDamageExit()
+    {
+        speed = speed * 10;
+        bulletDamage = 1;
+    }
+    // if we want to see the wireSphere again
+    //private void OnDrawGizmos()
+    //{
+    //   Gizmos.DrawWireSphere(transform.position, lookRadius);
+    //  Gizmos.DrawWireSphere(transform.position, stoppingDist);
+    //}
 }

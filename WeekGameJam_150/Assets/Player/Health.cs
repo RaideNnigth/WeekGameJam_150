@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,7 @@ public class Health : MonoBehaviour
 {
     public int numOfHearths;
     public Image[] hearts;
+    public Text counter;
 
     void Update() 
     {
@@ -23,6 +23,15 @@ public class Health : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+
+        counter.text = numOfHearths.ToString();
+
+        if (numOfHearths == 0)
+        {
+            // respawn
+        }
+
+
     }
 
 
