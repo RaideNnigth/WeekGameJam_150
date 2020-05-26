@@ -112,24 +112,19 @@ MonoBehaviour:
   speed: 1
   stoppingDist: 10
   targetsTag: enemies
+  moveSpot: {fileID: 2968471110249600571, guid: 6d404abd84076e94ba8697c06ebd2162,
+    type: 3}
+  minX: -50
+  maxX: 50
+  minZ: -50
+  maxZ: 50
   isRunning: 0
   bullet: {fileID: 5992764217203670929, guid: 78cc7ebe5b3c3cb43bc601f66da7982c, type: 3}
   FirePoint: {fileID: 3484308952101676712}
-  TimeBtwnShots: 0.5
+  TimeBtwnShots: 1
   Health: 100
   healthBar: {fileID: 0}
-  WaitSeconds: 2
-  randomDir:
-  - -5
-  - -4
-  - -3
-  - -2
-  - -1
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
+  startWaitTime: 1
 --- !u!54 &-5973126848063236285
 Rigidbody:
   m_ObjectHideFlags: 0

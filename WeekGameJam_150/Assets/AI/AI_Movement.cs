@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +12,12 @@ public class AI_Movement : MonoBehaviour
     public float speed;
     public float stoppingDist;
     public string targetsTag;
+    public Transform moveSpot;
+    public float minX;
+    public float maxX;
+    public float minZ;
+    public float maxZ;
+    
     [HideInInspector] public bool isRunning;
     GameObject target;
 
@@ -20,26 +27,28 @@ public class AI_Movement : MonoBehaviour
     public Transform FirePoint;
     public float TimeBtwnShots = 0.5f;
     private float lastShot;
+    private float bulletDamage = 1;
 
     public float Health = 100;
     public HealthBar healthBar;
+
+    private float waitTime;
+    public float startWaitTime;
     
-    public float WaitSeconds;
-    public float[] randomDir;
-    private bool canSearch = false;
-    private bool canMove = false;
-    
- 
 
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
+        waitTime = startWaitTime;
+        moveSpot = GameObject.Find("MoveSpot").GetComponent<Transform>();
+        moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
         healthBar = FindObjectOfType<HealthBar>();
+
     }
 
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             //Debug.Log("No target Available");
             target = GameObject.FindGameObjectWithTag(targetsTag);
@@ -72,35 +81,27 @@ public class AI_Movement : MonoBehaviour
                 Instantiate(bullet, FirePoint.transform.position, transform.rotation);
                 lastShot = Time.time;
             }
-            canSearch = false;
         }
-        else
+        else 
         {
-            if (canSearch == true)
-            {
-                isRunning = true;
-                int i = Random.Range(-10, randomDir.Length - 1);
-                int iy = Random.Range(0, 360);
+            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
 
-                while (canMove == true)
+            if(Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
+            {
+                if(waitTime <= 0)
                 {
-                    transform.Rotate(0, iy, 0);
-                    transform.Translate(transform.forward * speed * Time.deltaTime * randomDir[i], Space.World);
-                    StartCoroutine(waitMove());
+                    moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
+                    waitTime = startWaitTime;
                 }
-                
-            }
-            else
-            {
-                StartCoroutine(wait());
-                canMove = true;
-            }
-            
 
-            
+                else
+                {
+                    waitTime -= Time.deltaTime;
+                }
+            }
         }
+        
     }
-
     private void FaceTarget()
     {
         Vector3 direction = target.transform.position - transform.position;
@@ -114,7 +115,7 @@ public class AI_Movement : MonoBehaviour
         {
             if (Health > 0)
             {
-                Health -= 2;
+                Health -= bulletDamage;
                 healthBar.GetHit(Health);
             }
 
@@ -125,20 +126,29 @@ public class AI_Movement : MonoBehaviour
         }
     }
 
-    IEnumerator wait() 
-    {
-        isRunning = false;
-        yield return new WaitForSeconds(WaitSeconds);
-        canSearch = true;
-    }
-    
-    IEnumerator waitMove()
-    {
-        isRunning = false;
-        yield return new WaitForSeconds(WaitSeconds);
-        canMove = false;
+    public void SpikesDamageEnter()
+    { 
+        speed = speed / 3.5f;
+        Health -= 10;
+        healthBar.GetHit(Health);
     }
 
+    public void SpikesDamageExit()
+    {
+        speed = speed * 3.5f;
+    }
+
+    public void BearTrapDamageEnter()
+    {
+        speed = speed/10;
+        bulletDamage = 2;
+    }
+
+    public void BearTrapDamageExit()
+    {
+        speed = speed * 10;
+        bulletDamage = 1;
+    }
     // if we want to see the wireSphere again
     //private void OnDrawGizmos()
     //{

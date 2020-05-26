@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - Hero_Bullet
   - Player_Bullets
+  - Spots
   layers:
   - Default
   - TransparentFX

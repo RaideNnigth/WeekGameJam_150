@@ -193,11 +193,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1086770716710637932}
-  - component: {fileID: 5363304453284575816}
   - component: {fileID: 6634011896052378340}
   - component: {fileID: -2529340592210530917}
   - component: {fileID: 733339712620563604}
   - component: {fileID: 8070960743546040885}
+  - component: {fileID: 2074319612431468607}
   m_Layer: 0
   m_Name: Minion_2
   m_TagString: enemies
@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4129701823168865151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.47, y: 0.94, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3727562753166383842}
@@ -222,25 +222,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5363304453284575816
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4129701823168865151}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29178b5e148e45f4fabf3bd881ddfc44, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6634011896052378340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee70a7cf96bce14786dbe31eb42f49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2074319612431468607}
 --- !u!114 &-2529340592210530917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +286,25 @@ CapsuleCollider:
   m_Height: 2.0123754
   m_Direction: 1
   m_Center: {x: 0.06407118, y: 0.4652667, z: -0.16802025}
+--- !u!95 &2074319612431468607
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129701823168865151}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29178b5e148e45f4fabf3bd881ddfc44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5310233762744987585
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5450978036468594154}
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.09, z: 0}
   m_LocalScale: {x: 100, y: 78.430214, z: 100}
   m_Children:
   - {fileID: 6721164869348921872}
