@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8924757792010832418}
   - component: {fileID: 1293676618646340979}
   - component: {fileID: 8035454697956002097}
+  - component: {fileID: 5751991032112707800}
   m_Layer: 0
   m_Name: Hero(AI)
   m_TagString: Untagged
@@ -123,6 +124,25 @@ MonoBehaviour:
   Health: 100
   healthBar: {fileID: 0}
   startWaitTime: 1
+--- !u!95 &5751991032112707800
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242521007151618309}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7278284517665461946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +150,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 348982407557925504}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: 69d1a0da0b5b49049af12a86b6fad3a5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0b4426f32f8111e42bb5fafb65d6e489, type: 2}
     - target: {fileID: -4216859302048453862, guid: 69d1a0da0b5b49049af12a86b6fad3a5,
         type: 3}
       propertyPath: m_LocalPosition.x
