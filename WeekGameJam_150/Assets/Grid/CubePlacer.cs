@@ -11,6 +11,7 @@ public class CubePlacer : MonoBehaviour
     public GameObject[] prefab;
     public GameObject[] spikesPrefabs;
     public Image[] Itens;
+    public Image Slote;
     public Text limitCounter;
     public int limitOne = 4;
     public int limitTwo = 4;
@@ -214,7 +215,8 @@ public class CubePlacer : MonoBehaviour
         Itens[2].enabled = false;
         Itens[1].enabled = false;
         Itens[0].enabled = false;
-        Destroy(limitCounter.gameObject);
+        Slote.enabled = false;
+        limitCounter.enabled = false;
         Destroy(this);
     }
 }

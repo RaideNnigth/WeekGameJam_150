@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     public float Speed = 20f;
-    
+    public bool running = false;
+    public Animator animator;
     void Update()
     {
         HandleMovementInput();
@@ -16,7 +16,14 @@ public class Movement : MonoBehaviour
     {
         float AxisX = Input.GetAxis("Horizontal");
         float AxisZ = Input.GetAxis("Vertical");
-
+        if (AxisX != 0 || AxisZ != 0)
+        {
+            animator.SetBool("running", true);
+        }
+        else 
+        {
+            animator.SetBool("running", false);
+        }
         Vector3 _movement = new Vector3(AxisX, 0, AxisZ);
         transform.Translate(_movement * Speed * Time.deltaTime, Space.World);
     }
