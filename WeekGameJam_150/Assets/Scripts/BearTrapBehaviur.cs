@@ -9,11 +9,13 @@ public class BearTrapBehaviur : MonoBehaviour
 
     void Start()
     {
-        ai = FindObjectOfType<AI_Movement>();
         animator = GetComponent<Animator>();
         animator.SetBool("is", false);
     }
-
+    void Update()
+    {
+        ai = FindObjectOfType<AI_Movement>();
+    }
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")

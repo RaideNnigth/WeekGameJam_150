@@ -34,15 +34,19 @@ public class AI_Movement : MonoBehaviour
 
     private float waitTime;
     public float startWaitTime;
-    
+    public Animator animator;
+
 
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
+        
         waitTime = startWaitTime;
         moveSpot = GameObject.Find("MoveSpot").GetComponent<Transform>();
         moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
         healthBar = FindObjectOfType<HealthBar>();
+        animator.SetBool("running", false);
+        animator.SetBool("attack", false);
 
     }
 
@@ -64,11 +68,13 @@ public class AI_Movement : MonoBehaviour
                 isRunning = true;
                 Vector3 newPos = target.transform.position - transform.position;
                 transform.Translate(newPos * speed * Time.deltaTime, Space.World);
+                animator.SetBool("running", true);
             }
             else
             {
                 //If this Gameobject has reached near the target then dont run.
                 isRunning = false;
+                animator.SetBool("running", false);
             }
 
             //Face Target
@@ -80,18 +86,24 @@ public class AI_Movement : MonoBehaviour
             {
                 Instantiate(bullet, FirePoint.transform.position, transform.rotation);
                 lastShot = Time.time;
+                animator.SetBool("attack", true);
+            }
+            else 
+            {
+                animator.SetBool("attack", false);
             }
         }
         else 
         {
-            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
-
-            if(Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
+            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, 5 * Time.deltaTime);
+            animator.SetBool("running", true);
+            if (Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
             {
                 if(waitTime <= 0)
                 {
                     moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
                     waitTime = startWaitTime;
+                    animator.SetBool("running", false);
                 }
 
                 else
@@ -140,13 +152,13 @@ public class AI_Movement : MonoBehaviour
 
     public void BearTrapDamageEnter()
     {
-        speed = speed/10;
+        speed = speed/3.5f;
         bulletDamage = 2;
     }
 
     public void BearTrapDamageExit()
     {
-        speed = speed * 10;
+        speed = speed * 3.5f;
         bulletDamage = 1;
     }
     // if we want to see the wireSphere again

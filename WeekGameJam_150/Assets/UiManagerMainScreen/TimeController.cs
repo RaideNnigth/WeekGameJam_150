@@ -11,6 +11,7 @@ public class TimeController : MonoBehaviour
     public CubePlacer cubePlacer;
     private float currentTime = 0f;
     private float startingTime;
+    private int n = 0;
 
     
     void Start()
@@ -25,13 +26,17 @@ public class TimeController : MonoBehaviour
         
         currentTime -= 1 * Time.deltaTime;
         float seconds = currentTime;
-        timer.text = seconds.ToString("0");
         
         if (timer.text == "0")
         {
             cubePlacer.Stop();
             spawnHero.Spawn();
-            Destroy(timer.gameObject);
+            Destroy(this);
+        }
+        else
+        {
+            timer.text = seconds.ToString("0");
         }
     }
 }
+

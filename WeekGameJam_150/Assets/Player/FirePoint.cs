@@ -6,14 +6,19 @@ public class FirePoint : MonoBehaviour
 {
     public GameObject bullet;
     public float shootDelay;
+    public bool running = false;
+    public Animator animator;
     private bool canShoot = false;
+   
     
     void Update()
     {
+        animator.SetBool("attack", false);
         if (canShoot == false)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                animator.SetBool("attack", true);
                 Instantiate(bullet, transform.position, transform.rotation);
                 canShoot = true;
                 StartCoroutine(wait());

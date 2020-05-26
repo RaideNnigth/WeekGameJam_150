@@ -11,7 +11,7 @@ public class CollisionDetection : MonoBehaviour
     public void OnTriggerEnter(Collider colision)
     {
         if (colision.gameObject.tag == "Hero_Bullet")
-        {
+        { 
             health.GetDamaged();
         }
     }
