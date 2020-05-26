@@ -22,10 +22,10 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - Glow
+  - Building
+  - ResidentialBuiglings
+  - FootPath
   - 
   - 
   - 
