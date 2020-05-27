@@ -12,6 +12,12 @@ public class SpawnHero : MonoBehaviour
     public int maxZ;
     private bool canSpawn = true;
     private int spawnCounter = 0;
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Update()
     {
@@ -19,6 +25,8 @@ public class SpawnHero : MonoBehaviour
         {
             //Here you implement the trasition to the next level
         }
+
+        Debug.Log(spawnCounter);
     }
     public void Spawn ()
     {
@@ -39,6 +47,27 @@ public class SpawnHero : MonoBehaviour
             Instantiate(hero, new Vector3(x, transform.position.y, z), transform.rotation);
             canSpawn = false;
             spawnCounter += 1;
+
+            //Play respawn voiceovers
+            StartCoroutine(PlayVoiceOvers());
+        }
+    }
+
+    IEnumerator PlayVoiceOvers()
+    {
+        if (spawnCounter == 2)
+        {
+            audioManager.Find("Main Menu Song").source.volume = 0.4f;
+            audioManager.Play("Second Life");
+            yield return new WaitForSeconds(2f);
+            audioManager.Find("Main Menu Song").source.volume = 1f;
+        }
+        else if (spawnCounter == 3)
+        {
+            audioManager.Find("Main Menu Song").source.volume = 0.4f;
+            audioManager.Play("Multiple Lives");
+            yield return new WaitForSeconds(3.5f);
+            audioManager.Find("Main Menu Song").source.volume = 1f;
         }
     }
 
