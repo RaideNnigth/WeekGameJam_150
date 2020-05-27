@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
+
 
 public class TimeController : MonoBehaviour
 {
@@ -10,13 +10,13 @@ public class TimeController : MonoBehaviour
     public SpawnHero spawnHero;
     public CubePlacer cubePlacer;
     private float currentTime = 0f;
-    private float startingTime;
-    private int n = 0;
+    private float startingTime = 15;
+    private bool timeZero = false;
 
     
     void Start()
     {
-        startingTime = Random.Range(59, 90);
+        cubePlacer = FindObjectOfType<CubePlacer>();
         currentTime = startingTime;
     }
 
@@ -27,13 +27,16 @@ public class TimeController : MonoBehaviour
         currentTime -= 1 * Time.deltaTime;
         float seconds = currentTime;
         
-        if (timer.text == "0")
+        if (timer.text == "0" )
         {
+
             cubePlacer.Stop();
             spawnHero.Spawn();
+            timeZero = true;
             Destroy(this);
+            
         }
-        else
+        if (timer.text != "0" && timeZero == false)
         {
             timer.text = seconds.ToString("0");
         }

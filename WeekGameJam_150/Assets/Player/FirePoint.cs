@@ -6,7 +6,6 @@ public class FirePoint : MonoBehaviour
 {
     public GameObject bullet;
     public float shootDelay;
-    public bool running = false;
     public Animator animator;
     private bool canShoot = false;
    
