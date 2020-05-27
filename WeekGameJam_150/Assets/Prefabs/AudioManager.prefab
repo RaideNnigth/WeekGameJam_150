@@ -62,3 +62,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5d2992d7cd3945149b0d78d39f15af06, type: 3}
     volume: 1
     pitch: 1
+  - name: Hero Bullet Fx
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
