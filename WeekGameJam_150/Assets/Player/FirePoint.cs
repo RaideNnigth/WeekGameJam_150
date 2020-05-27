@@ -8,8 +8,13 @@ public class FirePoint : MonoBehaviour
     public float shootDelay;
     public Animator animator;
     private bool canShoot = false;
-   
-    
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     void Update()
     {
         animator.SetBool("attack", false);
@@ -17,18 +22,25 @@ public class FirePoint : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                animator.SetBool("attack", true);
-                Instantiate(bullet, transform.position, transform.rotation);
-                canShoot = true;
-                StartCoroutine(wait());
+                //Shoot
+                StartCoroutine(Shoot());
             }
         }
     }
 
-    IEnumerator wait() 
+    IEnumerator Shoot()
     {
+        animator.SetBool("attack", true);
+
+        //Wait for animations to show that the boss is shooting
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(bullet, transform.position, transform.rotation);
+
+        //Play Boss Shooting Sound
+        audioManager.Play("Boss Shooting");
+
+        canShoot = true;
         yield return new WaitForSeconds(shootDelay);
         canShoot = false;
-    
     }
 }

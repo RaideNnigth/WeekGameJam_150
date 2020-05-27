@@ -3,7 +3,12 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
-	
+
+
+	private void Start()
+	{
+		FindObjectOfType<AudioManager>().Play("Main Menu Song");
+	}
 
 	public void Quit () 
 	{
