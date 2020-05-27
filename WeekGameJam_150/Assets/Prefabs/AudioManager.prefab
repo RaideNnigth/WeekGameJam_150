@@ -68,3 +68,27 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
     volume: 1
     pitch: 1
+  - name: Boss Bullet Fx
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Minion Bullet Fx
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Second Life
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 6ce72870bbe484540afd3c8ecad98b75, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Multiple Lives
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
