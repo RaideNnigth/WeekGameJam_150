@@ -21,6 +21,7 @@ public class ApplicationManager : MonoBehaviour {
 
 	public void StartGame()
 	{
-		SceneManager.LoadScene(1);
+		// Change Scene Here 
+		//SceneManager.LoadScene();
 	}
 }
