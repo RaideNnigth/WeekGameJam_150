@@ -44,4 +44,14 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
+    public Sound Find(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("No audio clip of name " + name + " was found, Maybe u misspelled it.");
+            return null;
+        }
+        return s;
+    }
 }
