@@ -253,7 +253,7 @@ MonoBehaviour:
   isRunning: 0
   bullet: {fileID: 5560544362604521396, guid: e46465b7a3d2a334ba23c528218d1bd4, type: 3}
   FirePoint: {fileID: 5452241552104429608}
-  TimeBtwnShots: 0.5
+  TimeBtwnShots: 1.5
   Health: 2
 --- !u!54 &733339712620563604
 Rigidbody:
@@ -281,10 +281,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.9966688
-  m_Height: 2.0123754
+  m_Radius: 1.0444573
+  m_Height: 2.0889146
   m_Direction: 1
-  m_Center: {x: 0.06407118, y: 0.4652667, z: -0.16802025}
+  m_Center: {x: 0.016282678, y: 1.3827668, z: -0.16802025}
 --- !u!95 &2074319612431468607
 Animator:
   serializedVersion: 3

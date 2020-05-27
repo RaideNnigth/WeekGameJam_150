@@ -138,12 +138,12 @@ public class CubePlacer : MonoBehaviour
                     Destroy(GameObject.Find("BearTrap(Clone)"));
                     limitTwo += 1;
                 }
-                if (prefabSelected == 2 && limitThree < 2)
+                if (prefabSelected == 2 && limitThree < 1)
                 {
                     Destroy(GameObject.Find("Minion_1(Clone)"));
                     limitThree += 1;
                 }
-                if (prefabSelected == 3 && limitFour < 2)
+                if (prefabSelected == 3 && limitFour < 1)
                 {
                     Destroy(GameObject.Find("Minion_2(Clone)"));
                     limitFour += 1;
@@ -211,6 +211,7 @@ public class CubePlacer : MonoBehaviour
 
     public void Stop ()
     {
+        
         Itens[3].enabled = false;
         Itens[2].enabled = false;
         Itens[1].enabled = false;
@@ -218,5 +219,6 @@ public class CubePlacer : MonoBehaviour
         Slote.enabled = false;
         limitCounter.enabled = false;
         Destroy(this);
+        
     }
 }

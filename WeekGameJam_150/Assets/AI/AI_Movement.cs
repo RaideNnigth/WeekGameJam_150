@@ -20,6 +20,7 @@ public class AI_Movement : MonoBehaviour
     
     [HideInInspector] public bool isRunning;
     GameObject target;
+    
 
     [Space]
     [Header("Shooting")]
@@ -35,12 +36,14 @@ public class AI_Movement : MonoBehaviour
     private float waitTime;
     public float startWaitTime;
     public Animator animator;
+    SpawnHero spawnHero;
 
 
     private void Start()
     {
         //target = GameObject.FindGameObjectWithTag(targetsTag);
-        
+
+        spawnHero = FindObjectOfType<SpawnHero>();
         waitTime = startWaitTime;
         moveSpot = GameObject.Find("MoveSpot").GetComponent<Transform>();
         moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
@@ -95,7 +98,7 @@ public class AI_Movement : MonoBehaviour
         }
         else 
         {
-            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, 5 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, moveSpot.position, 8 * Time.deltaTime);
             animator.SetBool("running", true);
             if (Vector3.Distance(transform.position, moveSpot.position) < 0.2f)
             {
@@ -133,6 +136,7 @@ public class AI_Movement : MonoBehaviour
 
             else 
             {
+                spawnHero.RandomSpawn();
                 Destroy(gameObject);
             }
         }

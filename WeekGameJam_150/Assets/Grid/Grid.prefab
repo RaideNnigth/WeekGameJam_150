@@ -62,11 +62,12 @@ MonoBehaviour:
   prefab: []
   spikesPrefabs: []
   Itens: []
+  Slote: {fileID: 0}
   limitCounter: {fileID: 0}
   limitOne: 4
   limitTwo: 4
-  limitThree: 2
-  limitFour: 2
+  limitThree: 1
+  limitFour: 1
   prefabSelected: 0
 --- !u!1 &3062382161043147116
 GameObject:

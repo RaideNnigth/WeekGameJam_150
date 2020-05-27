@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -8,6 +9,7 @@ public class Health : MonoBehaviour
     public int numOfHearths;
     public Image[] hearts;
     public Text counter;
+    public int SceneIndexDeathSpawn;
 
     void Update() 
     {
@@ -26,9 +28,9 @@ public class Health : MonoBehaviour
 
         counter.text = numOfHearths.ToString();
 
-        if (numOfHearths == 0)
+        if (numOfHearths < 0)
         {
-            // respawn
+            SceneManager.LoadScene(SceneIndexDeathSpawn);
         }
 
 
