@@ -13,6 +13,7 @@ public class AI_Movement : MonoBehaviour
     public float stoppingDist;
     public string targetsTag;
     public Transform moveSpot;
+    private AudioManager audioManager;
     public float minX;
     public float maxX;
     public float minZ;
@@ -46,6 +47,7 @@ public class AI_Movement : MonoBehaviour
         spawnHero = FindObjectOfType<SpawnHero>();
         waitTime = startWaitTime;
         moveSpot = GameObject.Find("MoveSpot").GetComponent<Transform>();
+        audioManager = FindObjectOfType<AudioManager>();
         moveSpot.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
         healthBar = FindObjectOfType<HealthBar>();
         animator.SetBool("running", false);
@@ -88,6 +90,10 @@ public class AI_Movement : MonoBehaviour
             if (Time.time > TimeBtwnShots + lastShot)
             {
                 Instantiate(bullet, FirePoint.transform.position, transform.rotation);
+
+                //Play Bullet Shot Sound
+                audioManager.Play("Hero Shooting");
+
                 lastShot = Time.time;
                 animator.SetBool("attack", true);
             }
