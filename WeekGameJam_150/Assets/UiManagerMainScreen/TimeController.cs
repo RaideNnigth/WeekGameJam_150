@@ -9,8 +9,8 @@ public class TimeController : MonoBehaviour
     public Text timer;
     public SpawnHero spawnHero;
     public CubePlacer cubePlacer;
-    public float startingTime = 15;
     private float currentTime = 0f;
+    private float startingTime = 15;
     private bool timeZero = false;
 
     

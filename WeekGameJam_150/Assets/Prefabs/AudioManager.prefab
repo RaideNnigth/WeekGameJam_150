@@ -83,13 +83,12 @@ MonoBehaviour:
   - name: Second Life
     source: {fileID: 0}
     loop: 0
-    clip: {fileID: 8300000, guid: d8aa2364cd81a0641aa7a1bd4ff6dfe6, type: 3}
+    clip: {fileID: 8300000, guid: 6ce72870bbe484540afd3c8ecad98b75, type: 3}
     volume: 1
     pitch: 1
   - name: Multiple Lives
     source: {fileID: 0}
     loop: 0
-    clip: {fileID: 8300000, guid: be1b643b1af9aab489cb561e4abb825f, type: 3}
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
     volume: 1
     pitch: 1
-
