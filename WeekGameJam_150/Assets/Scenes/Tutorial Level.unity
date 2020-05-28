@@ -317,6 +317,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3011940506259089410, guid: 6e349aef0c910ba4e935df2f21e0df46,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 3011940506259089411, guid: 6e349aef0c910ba4e935df2f21e0df46,
         type: 3}
       propertyPath: m_Name
@@ -425,12 +430,12 @@ PrefabInstance:
     - target: {fileID: 3011940506259089415, guid: 6e349aef0c910ba4e935df2f21e0df46,
         type: 3}
       propertyPath: Speed
-      value: 8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3011940506259089415, guid: 6e349aef0c910ba4e935df2f21e0df46,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3011940506799962805, guid: 6e349aef0c910ba4e935df2f21e0df46,
         type: 3}
@@ -2422,7 +2427,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 181027911}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 610091774088149469c70d391dbdf8f9, type: 3}
   m_Name: 
@@ -5459,7 +5464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1664842094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6725,7 +6730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2008405081
 RectTransform:
   m_ObjectHideFlags: 0

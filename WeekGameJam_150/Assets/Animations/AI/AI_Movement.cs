@@ -29,7 +29,7 @@ public class AI_Movement : MonoBehaviour
     public Transform FirePoint;
     public float TimeBtwnShots = 0.5f;
     private float lastShot;
-    private float bulletDamage = 1;
+    private float bulletDamage = 2;
 
     public float Health = 100;
     public HealthBar healthBar;
