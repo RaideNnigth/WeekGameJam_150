@@ -4,8 +4,7 @@ using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
 
-
-	private void Start()
+	private void Awake()
 	{
 		FindObjectOfType<AudioManager>().Play("Main Menu Song");
 	}

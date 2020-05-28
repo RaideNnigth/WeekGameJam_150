@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &927673135345661919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 927673135345661917}
+  - component: {fileID: 927673135345661916}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &927673135345661917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927673135345661919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927673135345661916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927673135345661919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7ccda57d0439f4fb351660ddcfdb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Main Menu Song
+    source: {fileID: 0}
+    loop: 1
+    clip: {fileID: 8300000, guid: 181117e7e1f138c448278a7ef9867a39, type: 3}
+    volume: 0.7
+    pitch: 1
+  - name: Hero Shooting
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 5d2992d7cd3945149b0d78d39f15af06, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Boss Shooting
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 5d2992d7cd3945149b0d78d39f15af06, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Hero Bullet Fx
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Boss Bullet Fx
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Minion Bullet Fx
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 49e788e136cb86e4fa91928d8b54a900, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Second Life
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: b9ed7bb828db51d43b36b0369692abe7, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Multiple Lives
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: fc84bed61a85ea743b0745f6fce2a01f, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Win_VoiceLines
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 5acd9b317c203c8429d685b17578932a, type: 3}
+    volume: 1
+    pitch: 1
+  - name: Story_VoiceLines
+    source: {fileID: 0}
+    loop: 0
+    clip: {fileID: 8300000, guid: 29bad1147ca287e4db6f1249cffb3a2a, type: 3}
+    volume: 1
+    pitch: 1
