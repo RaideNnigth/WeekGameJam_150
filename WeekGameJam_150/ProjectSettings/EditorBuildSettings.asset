@@ -9,18 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu 3D 1.unity
     guid: a827308489c5ae24b9ef4a866dd54987
   - enabled: 1
-    path: Assets/Scenes/Level_1.unity
-    guid: 83d812f85746d5c4b91896982ffb7f16
+    path: Assets/Scenes/Tutorial Level.unity
+    guid: 97dfc7df30cf873498594fa356d28c29
+  - enabled: 1
+    path: Assets/Scenes/Story.unity
+    guid: 84094f58e32a3574197ed83450decd68
   - enabled: 1
     path: Assets/Scenes/Death 1.unity
     guid: 533dea920e329574fb32ead8be4c0fe9
   - enabled: 1
-    path: Assets/Scenes/Level_2.unity
-    guid: e375e3ac21d0ca0479c29a7b5f3ee18b
-  - enabled: 0
+    path: Assets/Scenes/Level_1.unity
+    guid: 83d812f85746d5c4b91896982ffb7f16
+  - enabled: 1
     path: Assets/Scenes/Death 2.unity
     guid: c33b98ac66967794ab6f4363947634ca
   - enabled: 1
-    path: Assets/Scenes/Tutorial Level.unity
-    guid: 97dfc7df30cf873498594fa356d28c29
+    path: Assets/Scenes/Level_2.unity
+    guid: e375e3ac21d0ca0479c29a7b5f3ee18b
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: c9cddb999237b474bba63be8b3a0e2bf
   m_configObjects: {}

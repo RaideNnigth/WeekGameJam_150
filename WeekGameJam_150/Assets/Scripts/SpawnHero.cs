@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class SpawnHero : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SpawnHero : MonoBehaviour
     public int maxX;
     public int minZ;
     public int maxZ;
+    public int SceneIndexPassLevel;
     private bool canSpawn = true;
     private int spawnCounter = 0;
     private AudioManager audioManager;
@@ -23,10 +25,8 @@ public class SpawnHero : MonoBehaviour
     {
         if(spawnCounter > 3)
         {
-            //Here you implement the trasition to the next level
+            SceneManager.LoadScene(SceneIndexPassLevel);
         }
-
-        Debug.Log(spawnCounter);
     }
     public void Spawn ()
     {
@@ -38,10 +38,7 @@ public class SpawnHero : MonoBehaviour
     {
         int x = Random.Range(minX, maxX);
         int z = Random.Range(minZ, maxZ);
-        if (canSpawn == false)
-        {
-            canSpawn = true;
-        }
+       
         if (canSpawn == true)
         {
             Instantiate(hero, new Vector3(x, transform.position.y, z), transform.rotation);
@@ -51,6 +48,8 @@ public class SpawnHero : MonoBehaviour
             //Play respawn voiceovers
             StartCoroutine(PlayVoiceOvers());
         }
+
+        StartCoroutine(wait());
     }
 
     IEnumerator PlayVoiceOvers()
@@ -71,4 +70,9 @@ public class SpawnHero : MonoBehaviour
         }
     }
 
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canSpawn = true;
+    }
 }

@@ -28,12 +28,10 @@ public class Health : MonoBehaviour
 
         counter.text = numOfHearths.ToString();
 
-        if (numOfHearths < 0)
+        if (numOfHearths < 1)
         {
             SceneManager.LoadScene(SceneIndexDeathSpawn);
         }
-
-
     }
 
 

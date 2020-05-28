@@ -30,7 +30,7 @@ public class storymanager : MonoBehaviour
         }
         else if (timer >= 15)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }
 }

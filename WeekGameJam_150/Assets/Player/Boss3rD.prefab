@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3011940506259089412}
-  - component: {fileID: 3011940506259089416}
   - component: {fileID: 3011940506259089413}
   - component: {fileID: 3011940506259089410}
   - component: {fileID: 3011940506259089415}
@@ -39,19 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3011940506259089416
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3011940506259089411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3216194, y: 0.65880406, z: 1.5349123}
-  m_Center: {x: 0.032102406, y: 0.25496155, z: 0.26745617}
 --- !u!136 &3011940506259089413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -304,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6452629050586978847, guid: 1f5cb24244b20cd4d8b948dd99d32c1e, type: 3}
-  shootDelay: 2.5
+  shootDelay: 1.5
   animator: {fileID: 161066229949561209}
 --- !u!1001 &3011940506708573977
 PrefabInstance:
