@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 1283660361526472966}
   - component: {fileID: 1283660361526472965}
   - component: {fileID: 1283660361526472964}
-  - component: {fileID: 1283660361526472967}
   m_Layer: 0
   m_Name: FootPath (1)
   m_TagString: Untagged
@@ -172,19 +171,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1283660361526472967
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283660361526472969}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7129646099915006194
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +182,7 @@ GameObject:
   - component: {fileID: 6100915705521640161}
   - component: {fileID: 3022416991659436247}
   - component: {fileID: 8848800683734651950}
+  - component: {fileID: 6203082830607736858}
   m_Layer: 0
   m_Name: Residential Buildings 002
   m_TagString: Untagged
@@ -210,7 +197,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7129646099915006194}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 21.8, y: 0, z: 7.9}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
@@ -269,6 +256,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6203082830607736858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7129646099915006194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12594825, y: 0.23096621, z: 0.21987846}
+  m_Center: {x: 0.00812624, y: 0.00498308, z: 0.10989188}
 --- !u!1001 &553419221022270760
 PrefabInstance:
   m_ObjectHideFlags: 0

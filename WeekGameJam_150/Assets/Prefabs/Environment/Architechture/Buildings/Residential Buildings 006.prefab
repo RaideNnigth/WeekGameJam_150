@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4366198551562394388}
   - component: {fileID: 4741407276487450914}
   - component: {fileID: 1364684864161799643}
+  - component: {fileID: 784690553360825340}
   m_Layer: 0
   m_Name: Residential Buildings 006
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778141610304432391}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -6.7, y: 0, z: 42}
   m_LocalScale: {x: 186.53, y: 100, z: 100}
   m_Children:
@@ -41,7 +42,7 @@ Transform:
   - {fileID: 1152732720777273090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &4741407276487450914
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -90,6 +91,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &784690553360825340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778141610304432391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12594825, y: 0.2309661, z: 0.47187862}
+  m_Center: {x: 0.008126181, y: 0.0049830778, z: 0.23589195}
 --- !u!1001 &8785800208299089966
 PrefabInstance:
   m_ObjectHideFlags: 0
