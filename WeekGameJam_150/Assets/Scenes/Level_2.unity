@@ -2894,12 +2894,12 @@ PrefabInstance:
         type: 3}
       propertyPath: Itens.Array.data[0]
       value: 
-      objectReference: {fileID: 23782557}
+      objectReference: {fileID: 796463986}
     - target: {fileID: 3062382160838481813, guid: 796fc5e45360d834cb495722044c2cc5,
         type: 3}
       propertyPath: Itens.Array.data[1]
       value: 
-      objectReference: {fileID: 796463986}
+      objectReference: {fileID: 23782557}
     - target: {fileID: 3062382160838481813, guid: 796fc5e45360d834cb495722044c2cc5,
         type: 3}
       propertyPath: Itens.Array.data[2]
@@ -2923,7 +2923,7 @@ PrefabInstance:
     - target: {fileID: 3062382160838481819, guid: 796fc5e45360d834cb495722044c2cc5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3062382160838481819, guid: 796fc5e45360d834cb495722044c2cc5,
         type: 3}
@@ -3806,22 +3806,22 @@ PrefabInstance:
     - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
         type: 3}
       propertyPath: minX
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
-        type: 3}
-      propertyPath: maxX
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
-        type: 3}
-      propertyPath: minZ
       value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
         type: 3}
-      propertyPath: maxZ
+      propertyPath: maxX
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
+        type: 3}
+      propertyPath: minZ
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
+        type: 3}
+      propertyPath: maxZ
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4932112267284907722, guid: 64931dc07466c304c9a41a1320ceae95,
         type: 3}
