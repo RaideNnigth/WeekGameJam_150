@@ -6,7 +6,13 @@ public class ThirdPersonCharacterController : MonoBehaviour
 {
     public float Speed;
     public Animator animator;
-    
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Update()
     {
         PlayerMovement();
@@ -16,7 +22,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
     {
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
-        
+
         if (hor != 0 || ver != 0)
         {
             animator.SetBool("running", true);
@@ -26,7 +32,16 @@ public class ThirdPersonCharacterController : MonoBehaviour
             animator.SetBool("running", false);
         }
 
-        Vector3 playerMovement = new Vector3(hor, 0f, ver) * Speed * Time.deltaTime;
-        transform.Translate(playerMovement, Space.Self);
+        //Vector3 playerMovement = new Vector3(transform.position.x + hor, 0f, transform.position.z + ver) * Speed * Time.deltaTime * 100;
+        //rb.MovePosition(playerMovement);
+
+        // 2. Create the move vector
+        // /!\ Input Horizontal axis positive button
+        //      need to be the right move button (right arrow, D, ...)
+        Vector3 moveVector = (transform.forward * ver) + (transform.right * hor);
+        moveVector *= Speed * Time.deltaTime;
+
+        // 3. Apply the mouvement to the local position
+        rb.velocity = moveVector;
     }
 }
