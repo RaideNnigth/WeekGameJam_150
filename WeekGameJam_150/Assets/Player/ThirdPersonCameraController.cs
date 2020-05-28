@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThirdPersonCameraController : MonoBehaviour
 {
@@ -21,11 +24,12 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     void CamControl()
     {
+        
         mouseX += Input.GetAxis("Mouse X") * RotationSpeed;
         mouseY -= Input.GetAxis("Mouse Y") * RotationSpeed;
         mouseY = Mathf.Clamp(mouseY, -35, 60);
-       
         
+
         transform.LookAt(Target);
 
         Target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
